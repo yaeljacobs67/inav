@@ -35,6 +35,7 @@ typedef union {
     } values;
 } attitudeEulerAngles_t;
 
+extern float rMat[3][3];
 extern attitudeEulerAngles_t attitude;
 
 typedef struct imuConfig_s {
