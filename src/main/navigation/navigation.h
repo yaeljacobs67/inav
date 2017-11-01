@@ -19,11 +19,13 @@
 
 #include "common/maths.h"
 
+#include "config/feature.h"
+
 #include "flight/failsafe.h"
 
 #include "io/gps.h"
 
-#include "config/feature.h"
+#include "navigation/navigation_wind_estimator.h"
 
 /* GPS Home location data */
 extern gpsLocation_t        GPS_home;
