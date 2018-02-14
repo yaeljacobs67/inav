@@ -18,7 +18,7 @@
 #pragma once
 
 #ifdef USE_WIND_ESTIMATOR
-#ifndef GPS
+#ifndef USE_GPS
 #error Wind Estimator requires GPS support
 #endif
 
