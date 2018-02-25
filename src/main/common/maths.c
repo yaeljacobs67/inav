@@ -244,18 +244,22 @@ void buildRotationMatrix(fp_angles_t *delta, float matrix[3][3])
     matrix[2][Z] = cosy * cosx;
 }
 
-// Rotate a vector *v by the euler angles defined by the 3-vector *delta.
-void rotateV(struct fp_vector *v, fp_angles_t *delta)
+void rotateByMatrix(struct fp_vector *v, float matrix[3][3])
 {
     struct fp_vector v_tmp = *v;
-
-    float matrix[3][3];
-
-    buildRotationMatrix(delta, matrix);
 
     v->X = v_tmp.X * matrix[0][X] + v_tmp.Y * matrix[1][X] + v_tmp.Z * matrix[2][X];
     v->Y = v_tmp.X * matrix[0][Y] + v_tmp.Y * matrix[1][Y] + v_tmp.Z * matrix[2][Y];
     v->Z = v_tmp.X * matrix[0][Z] + v_tmp.Y * matrix[1][Z] + v_tmp.Z * matrix[2][Z];
+}
+
+// Rotate a vector *v by the euler angles defined by the 3-vector *delta.
+void rotateV(struct fp_vector *v, fp_angles_t *delta)
+{
+    float matrix[3][3];
+
+    buildRotationMatrix(delta, matrix);
+    rotateByMatrix(v, matrix);
 }
 
 // Quick median filter implementation

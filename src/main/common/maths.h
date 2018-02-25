@@ -153,6 +153,7 @@ void normalizeV(struct fp_vector *src, struct fp_vector *dest);
 
 void rotateV(struct fp_vector *v, fp_angles_t *delta);
 void buildRotationMatrix(fp_angles_t *delta, float matrix[3][3]);
+void rotateByMatrix(struct fp_vector *v, float matrix[3][3]);
 
 int32_t wrap_18000(int32_t angle);
 int32_t wrap_36000(int32_t angle);
