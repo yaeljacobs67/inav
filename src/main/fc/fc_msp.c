@@ -1729,12 +1729,12 @@ static mspResult_e mspFcProcessInCommand(uint16_t cmdMSP, sbuf_t *src)
 #ifdef USE_DTERM_NOTCH
         pidProfileMutable()->dterm_soft_notch_hz = constrain(sbufReadU16(src), 0, 500);
         pidProfileMutable()->dterm_soft_notch_cutoff = constrain(sbufReadU16(src), 1, 500);
-        pidInitFilters();
 #endif
 #ifdef USE_GYRO_NOTCH_2
         gyroConfigMutable()->gyro_soft_notch_hz_2 = constrain(sbufReadU16(src), 0, 500);
         gyroConfigMutable()->gyro_soft_notch_cutoff_2 = constrain(sbufReadU16(src), 1, 500);
 #endif
+        pidInitFilters();
         break;
 
     case MSP_SET_PID_ADVANCED:
